@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-50: #f0f4f8;
+  --color-navy-100: #d9e2ec;
+  --color-navy-200: #bcccdc;
+  --color-navy-300: #9fb3c8;
+  --color-navy-400: #829ab1;
+  --color-navy-500: #627d98;
+  --color-navy-600: #486581;
+  --color-navy-700: #334e68;
+  --color-navy-800: #243b53;
+  --color-navy-900: #102a43;
+  --color-navy-950: #0a1929;
+
+  --color-gold-50: #fffbea;
+  --color-gold-100: #fff3c4;
+  --color-gold-200: #fce588;
+  --color-gold-300: #fadb5f;
+  --color-gold-400: #f7c948;
+  --color-gold-500: #f0b429;
+  --color-gold-600: #de911d;
+  --color-gold-700: #cb6e17;
+  --color-gold-800: #b44d12;
+  --color-gold-900: #8d2b0b;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-navy-50);
+  color: var(--color-navy-900);
+}
+
+/* Star rating styles */
+.star-rating button {
+  transition: transform 0.1s ease;
+}
+.star-rating button:hover {
+  transform: scale(1.2);
+}
+
+/* Drag and drop styles */
+.dragging {
+  opacity: 0.5;
+}
+.drag-over {
+  border-color: var(--color-gold-400) !important;
+  background-color: var(--color-gold-50) !important;
+}
