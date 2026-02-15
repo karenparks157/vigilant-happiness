@@ -367,26 +367,53 @@ export const dealbreakerQuestions = [
   },
 ];
 
-// Open-ended strategy questions
+// Resource allocation & open response questions (mix of MC and open text)
 export const strategyQuestions = [
   {
     id: 'sq1',
-    question: 'What consumer subsector do you believe is most underappreciated by the PE market right now, and why?',
+    type: 'multiple-choice',
+    question: 'If you had to allocate the next 12 months of deal team time across consumer subsectors, how would you weight it?',
+    options: [
+      'Concentrate heavily on top 2-3 subsectors (80%+ of effort)',
+      'Spread across 5-6 subsectors with moderate depth',
+      'Broad coverage across 10+ subsectors with light touch',
+      'Go deep on 1 subsector — bet big on highest conviction',
+    ],
   },
   {
     id: 'sq2',
-    question: 'Describe your ideal consumer deal in 2-3 sentences. What does the company look like?',
+    type: 'multiple-choice',
+    question: 'How many consumer platform investments should the firm target over the next 2-3 years?',
+    options: [
+      '1-2 (very selective)',
+      '3-4 (balanced approach)',
+      '5-6 (active deployment)',
+      '7+ (high-volume strategy)',
+    ],
   },
   {
     id: 'sq3',
-    question: 'What macro trend or consumer behavior shift are you most excited about for the next 5 years?',
+    type: 'open',
+    question: 'What consumer subsector do you believe is most underappreciated by the PE market right now, and why?',
   },
   {
     id: 'sq4',
-    question: 'Is there a subsector NOT listed in this survey that you think we should be exploring? If so, what and why?',
+    type: 'open',
+    question: 'Describe your ideal consumer deal in 2-3 sentences. What does the company look like?',
   },
   {
     id: 'sq5',
+    type: 'open',
+    question: 'What macro trend or consumer behavior shift are you most excited about for the next 5 years?',
+  },
+  {
+    id: 'sq6',
+    type: 'open',
+    question: 'Is there a subsector NOT listed in this survey that you think we should be exploring? If so, what and why?',
+  },
+  {
+    id: 'sq7',
+    type: 'open',
     question: 'Any additional thoughts, concerns, or strategic observations you\'d like to share with the partnership?',
   },
 ];

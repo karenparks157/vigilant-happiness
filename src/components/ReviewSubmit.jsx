@@ -15,7 +15,10 @@ export default function ReviewSubmit({
   const topTenItems = topTen.map(code => allSubsectors.find(s => s.code === code)).filter(Boolean);
   const scenariosAnswered = tradeOffScenarios.filter(s => tradeOffAnswers[s.id]?.choice).length;
   const convictionAnswered = convictionQuestions.filter(q => convictionAnswers[q.id]).length;
-  const strategyAnswered = strategyQuestions.filter(q => strategyAnswers[q.id]?.trim()).length;
+  const strategyAnswered = strategyQuestions.filter(q => {
+    const ans = strategyAnswers[q.id];
+    return ans && (typeof ans === 'string' ? ans.trim() : true);
+  }).length;
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -146,7 +149,7 @@ export default function ReviewSubmit({
               <span className="text-navy-500">{dealbreakerAnswers.length} selected</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-navy-600">Strategy Questions</span>
+              <span className="text-navy-600">Resource Allocation & Open Response</span>
               <span className="text-navy-500">{strategyAnswered}/{strategyQuestions.length} answered</span>
             </div>
           </div>

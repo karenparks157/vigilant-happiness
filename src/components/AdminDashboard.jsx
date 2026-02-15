@@ -75,10 +75,9 @@ export default function AdminDashboard({ onExit }) {
         ratedBy: ratingCounts[code],
       }));
 
-    // Consensus: subsectors in 2+ people's top 10
-    const consensusThreshold = Math.max(2, Math.ceil(responses.length * 0.3));
+    // Consensus: subsectors in 3+ people's top 10
     const consensusSubsectors = Object.entries(topTenCounts)
-      .filter(([, count]) => count >= Math.min(consensusThreshold, responses.length))
+      .filter(([, count]) => count >= 3)
       .sort(([, a], [, b]) => b - a)
       .map(([code, count]) => ({
         ...allSubsectors.find(s => s.code === code),
@@ -177,11 +176,12 @@ export default function AdminDashboard({ onExit }) {
 
   const tabs = [
     { id: 'overview', label: 'Overview' },
+    { id: 'table', label: 'All Responses' },
     { id: 'heatmap', label: 'Heatmap' },
     { id: 'consensus', label: 'Consensus' },
     { id: 'tradeoffs', label: 'Trade-Offs' },
     { id: 'dealbreakers', label: 'Dealbreakers' },
-    { id: 'responses', label: 'Individual' },
+    { id: 'responses', label: 'Detail' },
   ];
 
   return (
@@ -314,6 +314,73 @@ export default function AdminDashboard({ onExit }) {
               </div>
             )}
 
+            {/* ALL RESPONSES TABLE TAB */}
+            {activeTab === 'table' && (
+              <div className="bg-white rounded-xl border border-navy-200 overflow-hidden">
+                <div className="p-6 border-b border-navy-200">
+                  <h3 className="font-semibold text-navy-800">All Responses</h3>
+                  <p className="text-sm text-navy-500 mt-1">{responses.length} total submissions</p>
+                </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left">
+                    <thead>
+                      <tr className="bg-navy-50 border-b border-navy-200">
+                        <th className="px-4 py-3 text-xs font-semibold text-navy-600 uppercase tracking-wider">#</th>
+                        <th className="px-4 py-3 text-xs font-semibold text-navy-600 uppercase tracking-wider">Name</th>
+                        <th className="px-4 py-3 text-xs font-semibold text-navy-600 uppercase tracking-wider">Email</th>
+                        <th className="px-4 py-3 text-xs font-semibold text-navy-600 uppercase tracking-wider">Title</th>
+                        <th className="px-4 py-3 text-xs font-semibold text-navy-600 uppercase tracking-wider text-center">Rated</th>
+                        <th className="px-4 py-3 text-xs font-semibold text-navy-600 uppercase tracking-wider text-center">Top 10</th>
+                        <th className="px-4 py-3 text-xs font-semibold text-navy-600 uppercase tracking-wider text-center">Scenarios</th>
+                        <th className="px-4 py-3 text-xs font-semibold text-navy-600 uppercase tracking-wider text-center">Dealbreakers</th>
+                        <th className="px-4 py-3 text-xs font-semibold text-navy-600 uppercase tracking-wider">Submitted</th>
+                        <th className="px-4 py-3 text-xs font-semibold text-navy-600 uppercase tracking-wider">#1 Pick</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-navy-100">
+                      {responses.map((r, idx) => {
+                        const topPick = r.topTen?.[0] ? allSubsectors.find(s => s.code === r.topTen[0]) : null;
+                        return (
+                          <tr key={r.id} className="hover:bg-navy-50 transition">
+                            <td className="px-4 py-3 text-sm text-navy-500 font-medium">{idx + 1}</td>
+                            <td className="px-4 py-3 text-sm font-medium text-navy-800">{r.respondent?.name}</td>
+                            <td className="px-4 py-3 text-sm text-navy-600">{r.respondent?.email}</td>
+                            <td className="px-4 py-3 text-sm text-navy-600">{r.respondent?.title || '—'}</td>
+                            <td className="px-4 py-3 text-sm text-center text-navy-700 font-medium">
+                              {Object.values(r.ratings || {}).filter(v => v > 0).length}
+                            </td>
+                            <td className="px-4 py-3 text-sm text-center text-navy-700 font-medium">
+                              {(r.topTen || []).length}/10
+                            </td>
+                            <td className="px-4 py-3 text-sm text-center text-navy-700 font-medium">
+                              {tradeOffScenarios.filter(s => r.tradeOffAnswers?.[s.id]?.choice).length}/4
+                            </td>
+                            <td className="px-4 py-3 text-sm text-center text-navy-700 font-medium">
+                              {(r.dealbreakerAnswers || []).length}
+                            </td>
+                            <td className="px-4 py-3 text-xs text-navy-500 whitespace-nowrap">
+                              {new Date(r.submittedAt).toLocaleDateString()}{' '}
+                              {new Date(r.submittedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                            </td>
+                            <td className="px-4 py-3 text-sm">
+                              {topPick ? (
+                                <span className="inline-flex items-center gap-1">
+                                  <span className="font-mono text-xs text-navy-500">{topPick.code}</span>
+                                  <span className="text-navy-700">{topPick.name}</span>
+                                </span>
+                              ) : (
+                                <span className="text-navy-400">—</span>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
             {/* HEATMAP TAB */}
             {activeTab === 'heatmap' && stats && (
               <div className="bg-white rounded-xl border border-navy-200 p-6 overflow-x-auto">
@@ -374,7 +441,7 @@ export default function AdminDashboard({ onExit }) {
                 <div className="bg-white rounded-xl border border-navy-200 p-6">
                   <h3 className="font-semibold text-navy-800 mb-2">Consensus View</h3>
                   <p className="text-sm text-navy-500 mb-4">
-                    Subsectors appearing in multiple partners' Top 10 lists
+                    Subsectors appearing in 3 or more partners' Top 10 lists
                   </p>
                   {stats.consensusSubsectors.length > 0 ? (
                     <div className="space-y-3">

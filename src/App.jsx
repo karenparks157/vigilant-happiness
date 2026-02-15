@@ -16,10 +16,10 @@ function App() {
   const [showAdmin, setShowAdmin] = useState(false);
   const survey = useSurveyState();
 
-  // Check for #admin hash
+  // Check for #results hash (admin dashboard)
   useEffect(() => {
     const checkHash = () => {
-      setShowAdmin(window.location.hash === '#admin');
+      setShowAdmin(window.location.hash === '#results');
     };
     checkHash();
     window.addEventListener('hashchange', checkHash);
