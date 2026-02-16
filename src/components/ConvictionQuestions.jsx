@@ -2,12 +2,17 @@ import { convictionQuestions } from '../data/surveyData';
 
 export default function ConvictionQuestions({ convictionAnswers, setConviction, onNext, onPrev }) {
   // convictionAnswers for checkbox-with-other: { selected: string[], otherText: string }
-  const toggleCheckbox = (questionId, option) => {
+  const toggleCheckbox = (questionId, option, maxSelect) => {
     const current = convictionAnswers[questionId] || { selected: [], otherText: '' };
     const selected = current.selected || [];
-    const next = selected.includes(option)
-      ? selected.filter(o => o !== option)
-      : [...selected, option];
+    let next;
+    if (selected.includes(option)) {
+      next = selected.filter(o => o !== option);
+    } else if (maxSelect && selected.length >= maxSelect) {
+      return; // at limit, don't add more
+    } else {
+      next = [...selected, option];
+    }
     setConviction(questionId, { ...current, selected: next });
   };
 
@@ -39,14 +44,18 @@ export default function ConvictionQuestions({ convictionAnswers, setConviction, 
               <div className="space-y-2">
                 {q.options.map(option => {
                   const isSelected = selected.includes(option);
+                  const atLimit = q.maxSelect && selected.length >= q.maxSelect && !isSelected;
                   return (
                     <button
                       key={option}
-                      onClick={() => toggleCheckbox(q.id, option)}
-                      className={`w-full text-left p-3 rounded-lg border-2 transition flex items-start gap-3 cursor-pointer ${
+                      onClick={() => toggleCheckbox(q.id, option, q.maxSelect)}
+                      disabled={atLimit}
+                      className={`w-full text-left p-3 rounded-lg border-2 transition flex items-start gap-3 ${
                         isSelected
-                          ? 'border-gold-400 bg-gold-50'
-                          : 'border-navy-200 hover:border-navy-300'
+                          ? 'border-gold-400 bg-gold-50 cursor-pointer'
+                          : atLimit
+                          ? 'border-navy-100 bg-navy-50 text-navy-400 cursor-not-allowed'
+                          : 'border-navy-200 hover:border-navy-300 cursor-pointer'
                       }`}
                     >
                       <div className={`mt-0.5 w-5 h-5 rounded flex-shrink-0 flex items-center justify-center border-2 transition ${
@@ -83,7 +92,7 @@ export default function ConvictionQuestions({ convictionAnswers, setConviction, 
 
               {selected.length > 0 && (
                 <p className="mt-3 text-xs text-navy-500">
-                  {selected.length} selected
+                  {selected.length}{q.maxSelect ? `/${q.maxSelect}` : ''} selected
                 </p>
               )}
             </div>

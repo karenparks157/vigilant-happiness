@@ -304,7 +304,8 @@ export const convictionQuestions = [
   {
     id: 'cq1',
     type: 'checkbox-with-other',
-    question: 'What would it take for you to pursue a deal at 11-12x EBITDA? (Check all that apply)',
+    question: 'What would it take for you to pursue a deal at 11-12x EBITDA? (Select your top 2)',
+    maxSelect: 2,
     options: [
       'Sector we already know extremely well',
       'Proprietary sourcing relationship / no competition',
