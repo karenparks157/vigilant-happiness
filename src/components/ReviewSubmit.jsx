@@ -142,7 +142,7 @@ export default function ReviewSubmit({
               <span className="text-navy-500">{dealbreakerAnswers.length} selected</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-navy-600">Resource Allocation & Open Response</span>
+              <span className="text-navy-600">Open Response</span>
               <span className="text-navy-500">{strategyAnswered}/{strategyQuestions.length} answered</span>
             </div>
           </div>

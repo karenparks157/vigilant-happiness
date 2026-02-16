@@ -21,7 +21,7 @@ export function useSurveyState() {
     'Trade-Off Scenarios',
     'Conviction Questions',
     'Dealbreakers',
-    'Resource Allocation & Open Response',
+    'Open Response',
     'Review & Submit',
   ];
 

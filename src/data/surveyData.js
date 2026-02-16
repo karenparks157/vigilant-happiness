@@ -339,33 +339,8 @@ export const dealbreakerQuestions = [
   },
 ];
 
-// Part 5: Resource allocation & open response questions
+// Part 5: Open response questions
 export const strategyQuestions = [
-  {
-    id: 'sq1',
-    type: 'multiple-choice',
-    question: 'If we decided to proactively build a pipeline in 2-3 specific subsectors (banker outreach, conferences, thematic research), how should we allocate effort?',
-    subtitle: 'I would support dedicating 30-40% of our sourcing time to proactive subsector development:',
-    options: [
-      'Strongly agree',
-      'Agree',
-      'Neutral',
-      'Disagree - we should stay opportunistic',
-    ],
-  },
-  {
-    id: 'sq2',
-    type: 'checkbox',
-    question: 'If we do this, which activities make sense? (Check all that apply)',
-    options: [
-      'Attend 2-3 industry conferences per year in target sectors',
-      'Monthly calls with 5-10 bankers who focus on target sectors',
-      'Quarterly thematic deep-dives (market research, expert calls)',
-      'Build relationships with 3-5 operators/executives in target sectors',
-      'Retain an industry advisor/executive in residence',
-      'None - better to respond to inbound flow',
-    ],
-  },
   {
     id: 'sq3',
     type: 'open',
