@@ -5,7 +5,7 @@ const DRAFT_KEY = 'charger-survey-draft';
 
 export function useSurveyState() {
   const [currentSection, setCurrentSection] = useState(0);
-  const [respondent, setRespondent] = useState({ name: '', email: '', title: '' });
+  const [respondent, setRespondent] = useState({ name: '' });
   const [ratings, setRatings] = useState({});
   const [topTen, setTopTen] = useState([]);
   const [tradeOffAnswers, setTradeOffAnswers] = useState({});
@@ -61,7 +61,7 @@ export function useSurveyState() {
     if (!stored) return false;
     try {
       const draft = JSON.parse(stored);
-      setRespondent(draft.respondent || { name: '', email: '', title: '' });
+      setRespondent(draft.respondent || { name: '' });
       setRatings(draft.ratings || {});
       setTopTen(draft.topTen || []);
       setTradeOffAnswers(draft.tradeOffAnswers || {});

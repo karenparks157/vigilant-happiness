@@ -33,19 +33,9 @@ export default function ReviewSubmit({
         {/* Respondent Info */}
         <div className="bg-white rounded-xl shadow-sm border border-navy-200 p-6">
           <h3 className="font-semibold text-navy-800 mb-3">Respondent</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-            <div>
-              <span className="text-navy-500">Name:</span>
-              <p className="font-medium text-navy-800">{respondent.name}</p>
-            </div>
-            <div>
-              <span className="text-navy-500">Email:</span>
-              <p className="font-medium text-navy-800">{respondent.email}</p>
-            </div>
-            <div>
-              <span className="text-navy-500">Title:</span>
-              <p className="font-medium text-navy-800">{respondent.title || 'N/A'}</p>
-            </div>
+          <div className="text-sm">
+            <span className="text-navy-500">Name:</span>
+            <p className="font-medium text-navy-800">{respondent.name}</p>
           </div>
         </div>
 

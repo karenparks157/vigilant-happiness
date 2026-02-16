@@ -1,5 +1,5 @@
 export default function WelcomeSection({ respondent, setRespondent, onNext }) {
-  const isValid = respondent.name.trim() && respondent.email.trim();
+  const isValid = respondent.name.trim();
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -35,31 +35,6 @@ export default function WelcomeSection({ respondent, setRespondent, onNext }) {
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-navy-700 mb-1">
-              Email <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="email"
-              value={respondent.email}
-              onChange={e => setRespondent({ ...respondent, email: e.target.value })}
-              placeholder="e.g., jsmith@charger.com"
-              className="w-full px-4 py-2.5 border border-navy-300 rounded-lg focus:ring-2 focus:ring-gold-400 focus:border-gold-400 outline-none transition"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-navy-700 mb-1">
-              Title / Role
-            </label>
-            <input
-              type="text"
-              value={respondent.title}
-              onChange={e => setRespondent({ ...respondent, title: e.target.value })}
-              placeholder="e.g., Managing Director"
-              className="w-full px-4 py-2.5 border border-navy-300 rounded-lg focus:ring-2 focus:ring-gold-400 focus:border-gold-400 outline-none transition"
-            />
-          </div>
         </div>
 
         <div className="mt-8 p-4 bg-navy-50 rounded-lg border border-navy-200">
