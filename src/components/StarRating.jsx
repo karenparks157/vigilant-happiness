@@ -1,46 +1,28 @@
-import { useState } from 'react';
+const levels = [
+  { value: 3, label: 'High', color: 'bg-green-100 text-green-700 border-green-300', active: 'bg-green-600 text-white border-green-600' },
+  { value: 2, label: 'Medium', color: 'bg-yellow-100 text-yellow-700 border-yellow-300', active: 'bg-yellow-500 text-white border-yellow-500' },
+  { value: 1, label: 'Low', color: 'bg-red-100 text-red-700 border-red-300', active: 'bg-red-500 text-white border-red-500' },
+];
 
-export default function StarRating({ value, onChange, size = 'md' }) {
-  const [hover, setHover] = useState(0);
+const labelMap = { 3: 'High', 2: 'Medium', 1: 'Low' };
 
-  const sizeClasses = {
-    sm: 'w-5 h-5',
-    md: 'w-6 h-6',
-    lg: 'w-8 h-8',
-  };
+export { labelMap };
 
-  const labels = ['', 'Not Interested', 'Low Interest', 'Moderate', 'Interested', 'Very Interested'];
-
+export default function StarRating({ value, onChange }) {
   return (
-    <div className="star-rating flex items-center gap-1">
-      {[1, 2, 3, 4, 5].map(star => (
+    <div className="flex items-center gap-1.5">
+      {levels.map(level => (
         <button
-          key={star}
+          key={level.value}
           type="button"
-          onClick={() => onChange(star === value ? 0 : star)}
-          onMouseEnter={() => setHover(star)}
-          onMouseLeave={() => setHover(0)}
-          className="focus:outline-none"
-          title={labels[star]}
+          onClick={() => onChange(level.value === value ? 0 : level.value)}
+          className={`px-3 py-1 text-xs font-semibold rounded-full border transition cursor-pointer ${
+            value === level.value ? level.active : level.color
+          }`}
         >
-          <svg
-            className={`${sizeClasses[size]} transition-colors ${
-              star <= (hover || value)
-                ? 'text-gold-400'
-                : 'text-navy-200'
-            }`}
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
+          {level.label}
         </button>
       ))}
-      {(hover || value) > 0 && (
-        <span className="ml-2 text-xs text-navy-500 font-medium">
-          {labels[hover || value]}
-        </span>
-      )}
     </div>
   );
 }

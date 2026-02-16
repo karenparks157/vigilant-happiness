@@ -1,4 +1,5 @@
 import { allSubsectors, tradeOffScenarios, convictionQuestions, dealbreakerQuestions, strategyQuestions } from '../data/surveyData';
+import { labelMap } from './StarRating';
 
 export default function ReviewSubmit({
   respondent,
@@ -48,7 +49,7 @@ export default function ReviewSubmit({
           {ratedCount > 0 && (
             <div className="flex flex-wrap gap-1.5">
               {Object.entries(ratings)
-                .filter(([, v]) => v >= 4)
+                .filter(([, v]) => v >= 2)
                 .sort(([, a], [, b]) => b - a)
                 .slice(0, 15)
                 .map(([code, val]) => {
@@ -60,13 +61,15 @@ export default function ReviewSubmit({
                     >
                       <span className="font-mono text-navy-500">{code}</span>
                       <span className="text-navy-700">{sub?.name}</span>
-                      <span className="text-gold-500">{'★'.repeat(val)}</span>
+                      <span className={`font-semibold ${val === 3 ? 'text-green-600' : 'text-yellow-600'}`}>
+                        {labelMap[val]}
+                      </span>
                     </span>
                   );
                 })}
-              {Object.entries(ratings).filter(([, v]) => v >= 4).length > 15 && (
+              {Object.entries(ratings).filter(([, v]) => v >= 2).length > 15 && (
                 <span className="text-xs text-navy-500 self-center">
-                  +{Object.entries(ratings).filter(([, v]) => v >= 4).length - 15} more
+                  +{Object.entries(ratings).filter(([, v]) => v >= 2).length - 15} more
                 </span>
               )}
             </div>

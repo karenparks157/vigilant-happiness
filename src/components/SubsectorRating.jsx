@@ -101,8 +101,8 @@ export default function SubsectorRating({ ratings, setRating, onNext, onPrev }) 
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-navy-900 mb-2">Rate Consumer Subsectors</h2>
         <p className="text-navy-600">
-          Rate each subsector from 1-5 stars based on your interest as an investment category.
-          Click a star again to clear it.
+          Rate each subsector as High, Medium, or Low based on your interest as an investment category.
+          Click a selection again to clear it.
         </p>
         <div className="flex items-center justify-between mt-4">
           <div className="flex items-center gap-2">
