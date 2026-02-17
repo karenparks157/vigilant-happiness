@@ -1,5 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { getAllResponses, clearAllResponses } from '../hooks/useSurveyState';
+import { fetchAllResponses, deleteAllResponses, isConfigured } from '../lib/supabase';
 import { allSubsectors, subsectorCategories, tradeOffScenarios, convictionQuestions, dealbreakerQuestions, strategyQuestions } from '../data/surveyData';
 
 function HeatmapCell({ value, max }) {
@@ -23,13 +24,34 @@ function HeatmapCell({ value, max }) {
 }
 
 export default function AdminDashboard({ onExit }) {
-  const [responses, setResponses] = useState(getAllResponses());
+  const [responses, setResponses] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
 
-  const refreshData = () => setResponses(getAllResponses());
+  const loadData = async () => {
+    setLoading(true);
+    try {
+      const remote = await fetchAllResponses();
+      setResponses(remote ?? getAllResponses());
+    } catch (err) {
+      console.error('Failed to fetch from Supabase, using localStorage:', err);
+      setResponses(getAllResponses());
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  const handleClear = () => {
+  useEffect(() => { loadData(); }, []);
+
+  const refreshData = () => loadData();
+
+  const handleClear = async () => {
     if (window.confirm('Are you sure you want to delete ALL survey responses? This cannot be undone.')) {
+      try {
+        await deleteAllResponses();
+      } catch (err) {
+        console.error('Failed to delete from Supabase:', err);
+      }
       clearAllResponses();
       setResponses([]);
     }
@@ -202,6 +224,12 @@ export default function AdminDashboard({ onExit }) {
             <span className="bg-navy-700 text-navy-300 px-2 py-0.5 rounded text-sm">
               {responses.length} response{responses.length !== 1 ? 's' : ''}
             </span>
+            {isConfigured && (
+              <span className="flex items-center gap-1 bg-green-900/40 text-green-300 px-2 py-0.5 rounded text-xs">
+                <span className="w-1.5 h-1.5 bg-green-400 rounded-full" />
+                Database connected
+              </span>
+            )}
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -249,7 +277,12 @@ export default function AdminDashboard({ onExit }) {
 
       {/* Content */}
       <div className="max-w-6xl mx-auto px-4 py-6">
-        {responses.length === 0 ? (
+        {loading ? (
+          <div className="text-center py-16">
+            <div className="inline-block w-8 h-8 border-4 border-navy-200 border-t-gold-500 rounded-full animate-spin mb-4" />
+            <p className="text-navy-500">Loading responses{isConfigured ? ' from database' : ''}...</p>
+          </div>
+        ) : responses.length === 0 ? (
           <div className="text-center py-16">
             <svg className="w-16 h-16 mx-auto text-navy-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

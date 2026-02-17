@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { saveResponse } from '../lib/supabase';
 
 const STORAGE_KEY = 'charger-survey-responses';
 const DRAFT_KEY = 'charger-survey-draft';
@@ -75,7 +76,7 @@ export function useSurveyState() {
     }
   }, []);
 
-  const submitSurvey = useCallback(() => {
+  const submitSurvey = useCallback(async () => {
     const response = {
       id: crypto.randomUUID(),
       respondent,
@@ -88,10 +89,17 @@ export function useSurveyState() {
       submittedAt: new Date().toISOString(),
     };
 
-    // Load existing responses
+    // Always save to localStorage as backup
     const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
     existing.push(response);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+
+    // Also save to Supabase (if configured)
+    try {
+      await saveResponse(response);
+    } catch (err) {
+      console.error('Supabase save failed (response saved locally):', err);
+    }
 
     // Clear draft
     localStorage.removeItem(DRAFT_KEY);
