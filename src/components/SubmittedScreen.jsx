@@ -1,13 +1,8 @@
-import ChargerLogo from './ChargerLogo';
-
 export default function SubmittedScreen({ respondent }) {
   return (
     <div className="max-w-lg mx-auto text-center py-16">
-      <div className="flex justify-center mb-6">
-        <ChargerLogo size="lg" />
-      </div>
-      <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-6">
-        <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
+        <svg className="w-10 h-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
         </svg>
       </div>

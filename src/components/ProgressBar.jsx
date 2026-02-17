@@ -1,11 +1,11 @@
-import ChargerLogo from './ChargerLogo';
-
 export default function ProgressBar({ sections, currentSection, onNavigate }) {
   return (
     <div className="bg-white border-b border-navy-200 sticky top-0 z-40">
       <div className="max-w-5xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between mb-2">
-          <ChargerLogo size="sm" />
+          <span className="text-sm font-medium text-navy-600">
+            Section {currentSection + 1} of {sections.length}
+          </span>
           <span className="text-sm font-semibold text-navy-800">
             {sections[currentSection]}
           </span>

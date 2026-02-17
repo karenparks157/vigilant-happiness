@@ -1,7 +1,0 @@
-<svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="12" fill="#102a43"/>
-  <!-- Gold outer swoosh -->
-  <path d="M16 50 C4 34, 6 14, 24 6 C36 -1, 50 2, 58 10" stroke="#D4922E" strokeWidth="7" strokeLinecap="round" fill="none"/>
-  <!-- White inner swoosh -->
-  <path d="M24 46 C14 34, 16 18, 28 12 C38 6, 50 10, 56 18" stroke="#ffffff" strokeWidth="5" strokeLinecap="round" fill="none"/>
-</svg>
