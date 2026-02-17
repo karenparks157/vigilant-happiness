@@ -42,15 +42,15 @@ export default function WelcomeSection({ respondent, setRespondent, onNext }) {
           <ul className="text-sm text-navy-600 space-y-1.5">
             <li className="flex items-start gap-2">
               <span className="text-gold-500 mt-0.5">1.</span>
-              Rate ~80 consumer subsectors across 12 categories
+              Rate consumer subsectors across 13 categories
             </li>
             <li className="flex items-start gap-2">
               <span className="text-gold-500 mt-0.5">2.</span>
-              Rank your Top 10 subsectors in priority order
+              Select your Top 10 subsectors (not in priority order)
             </li>
             <li className="flex items-start gap-2">
               <span className="text-gold-500 mt-0.5">3.</span>
-              Evaluate 4 trade-off deal scenarios
+              Evaluate trade-off deal scenarios
             </li>
             <li className="flex items-start gap-2">
               <span className="text-gold-500 mt-0.5">4.</span>
