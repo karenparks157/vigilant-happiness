@@ -10,10 +10,10 @@ function ScenarioCard({ scenario, answer, onAnswer }) {
       </div>
 
       <div className="p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Deal A */}
           <button
-            onClick={() => onAnswer(scenario.id, { ...answer, choice: 'A' })}
+            onClick={() => onAnswer(scenario.id, { choice: 'A' })}
             className={`text-left p-5 rounded-xl border-2 transition cursor-pointer ${
               selected === 'A'
                 ? 'border-gold-400 bg-gold-50 ring-2 ring-gold-200'
@@ -44,7 +44,7 @@ function ScenarioCard({ scenario, answer, onAnswer }) {
 
           {/* Deal B */}
           <button
-            onClick={() => onAnswer(scenario.id, { ...answer, choice: 'B' })}
+            onClick={() => onAnswer(scenario.id, { choice: 'B' })}
             className={`text-left p-5 rounded-xl border-2 transition cursor-pointer ${
               selected === 'B'
                 ? 'border-gold-400 bg-gold-50 ring-2 ring-gold-200'
@@ -73,22 +73,6 @@ function ScenarioCard({ scenario, answer, onAnswer }) {
             </ul>
           </button>
         </div>
-
-        {selected && (
-          <div>
-            <label className="block text-sm font-medium text-navy-700 mb-1.5">
-              Why? <span className="font-normal text-navy-500">(one sentence)</span>
-            </label>
-            <input
-              type="text"
-              value={answer?.reasoning || ''}
-              onChange={(e) => onAnswer(scenario.id, { ...answer, reasoning: e.target.value })}
-              placeholder="e.g., Higher margin profile with less execution risk..."
-              maxLength={200}
-              className="w-full px-4 py-2.5 border border-navy-300 rounded-lg focus:ring-2 focus:ring-gold-400 focus:border-gold-400 outline-none transition text-sm"
-            />
-          </div>
-        )}
       </div>
     </div>
   );
@@ -100,7 +84,7 @@ export default function TradeOffScenarios({ tradeOffAnswers, setTradeOff, onNext
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-navy-900 mb-2">Trade-Off Scenarios</h2>
         <p className="text-navy-600">
-          For each scenario, choose which deal you'd prefer to pursue and explain your reasoning.
+          For each scenario, choose which deal you'd prefer to pursue.
         </p>
       </div>
 
