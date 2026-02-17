@@ -203,9 +203,9 @@ export const allSubsectors = subsectorCategories.flatMap(cat =>
 export const tradeOffScenarios = [
   {
     id: 'scenario1',
-    title: 'Scenario 1: Proven vs. Emerging',
+    title: 'Scenario 1',
     dealA: {
-      name: 'Deal A: Franchisee Platform',
+      name: 'Deal A',
       details: [
         '30 locations',
         'Strong unit economics',
@@ -215,7 +215,7 @@ export const tradeOffScenarios = [
       ],
     },
     dealB: {
-      name: 'Deal B: Med Spa Platform',
+      name: 'Deal B',
       details: [
         '7 locations',
         'Emerging category',
@@ -226,9 +226,9 @@ export const tradeOffScenarios = [
   },
   {
     id: 'scenario2',
-    title: 'Scenario 2: Manufacturing vs. Services',
+    title: 'Scenario 2',
     dealA: {
-      name: 'Deal A: Food Co-Manufacturer',
+      name: 'Deal A',
       details: [
         '60% capacity utilization',
         'Customer concentration',
@@ -238,7 +238,7 @@ export const tradeOffScenarios = [
       ],
     },
     dealB: {
-      name: 'Deal B: Home Services Platform (HVAC)',
+      name: 'Deal B',
       details: [
         'Fragmented market',
         'Bolt-on opportunities',
@@ -249,9 +249,9 @@ export const tradeOffScenarios = [
   },
   {
     id: 'scenario3',
-    title: 'Scenario 3: Known Sector vs. New Opportunity',
+    title: 'Scenario 3',
     dealA: {
-      name: 'Deal A: Franchisor Asset',
+      name: 'Deal A',
       details: [
         'Competitive process',
         '13x EBITDA',
@@ -259,7 +259,7 @@ export const tradeOffScenarios = [
       ],
     },
     dealB: {
-      name: 'Deal B: New Sector (Pet Services)',
+      name: 'Deal B',
       details: [
         'Proprietary deal',
         '9x EBITDA',
@@ -270,9 +270,9 @@ export const tradeOffScenarios = [
   },
   {
     id: 'scenario4',
-    title: 'Scenario 4: Complexity vs. Simplicity',
+    title: 'Scenario 4',
     dealA: {
-      name: 'Deal A: Ingredients / Flavors Business',
+      name: 'Deal A',
       details: [
         'High technical barriers',
         'Differentiated',
@@ -281,7 +281,7 @@ export const tradeOffScenarios = [
       ],
     },
     dealB: {
-      name: 'Deal B: Retail Services Concept',
+      name: 'Deal B',
       details: [
         'Replicable model',
         'Simple operations',
@@ -292,9 +292,9 @@ export const tradeOffScenarios = [
   },
   {
     id: 'scenario5',
-    title: 'Scenario 5: Commodity vs. Differentiated',
+    title: 'Scenario 5',
     dealA: {
-      name: 'Deal A: Food Ingredients Distributor',
+      name: 'Deal A',
       details: [
         'Commoditized products',
         'Slim margins (8%)',
@@ -303,7 +303,7 @@ export const tradeOffScenarios = [
       ],
     },
     dealB: {
-      name: 'Deal B: Med Spa Platform',
+      name: 'Deal B',
       details: [
         'Differentiated services',
         'Strong margins (25%)',
@@ -314,9 +314,9 @@ export const tradeOffScenarios = [
   },
   {
     id: 'scenario6',
-    title: 'Scenario 6: Platform Build vs. Strategic Add-On',
+    title: 'Scenario 6',
     dealA: {
-      name: 'Deal A: Standalone Pet Grooming Business',
+      name: 'Deal A',
       details: [
         '12 locations, strong brand',
         'Could be a platform for roll-up strategy',
@@ -326,7 +326,7 @@ export const tradeOffScenarios = [
       ],
     },
     dealB: {
-      name: 'Deal B: Coffee Chain (Add-On to Beans and Brews)',
+      name: 'Deal B',
       details: [
         '5 locations, immediate synergies',
         'Management can be consolidated',
@@ -337,9 +337,9 @@ export const tradeOffScenarios = [
   },
   {
     id: 'scenario7',
-    title: 'Scenario 7: B2B Quasi-Consumer vs. DTC Consumer',
+    title: 'Scenario 7',
     dealA: {
-      name: 'Deal A: Commercial Furniture (B2B)',
+      name: 'Deal A',
       details: [
         'B2B sales to architects/designers',
         'Specified products, 18-month sales cycles',
@@ -350,7 +350,7 @@ export const tradeOffScenarios = [
       ],
     },
     dealB: {
-      name: 'Deal B: Branded Consumer Pet Products (DTC + Amazon)',
+      name: 'Deal B',
       details: [
         'Direct to consumer, marketing-driven',
         'Fast product cycles, fad risk',
@@ -362,9 +362,9 @@ export const tradeOffScenarios = [
   },
   {
     id: 'scenario8',
-    title: 'Scenario 8: Mature Cash Flow vs. Growth Capex',
+    title: 'Scenario 8',
     dealA: {
-      name: 'Deal A: QSR Franchisee (Ohio)',
+      name: 'Deal A',
       details: [
         '15 locations, mature market',
         'Limited white space, same-store sales flat',
@@ -374,7 +374,7 @@ export const tradeOffScenarios = [
       ],
     },
     dealB: {
-      name: 'Deal B: QSR Franchisee (Florida)',
+      name: 'Deal B',
       details: [
         '8 locations, development agreement for 12 more over 4 years',
         'Strong same-store growth (+8% annually)',
@@ -385,9 +385,9 @@ export const tradeOffScenarios = [
   },
   {
     id: 'scenario9',
-    title: 'Scenario 9: Stability vs. Upside',
+    title: 'Scenario 9',
     dealA: {
-      name: 'Deal A: Home Services (Plumbing/HVAC)',
+      name: 'Deal A',
       details: [
         'Recession-resistant, need-based services',
         'Recurring maintenance revenue',
@@ -397,7 +397,7 @@ export const tradeOffScenarios = [
       ],
     },
     dealB: {
-      name: 'Deal B: Remodeling / Renovation Services',
+      name: 'Deal B',
       details: [
         'Discretionary spending, boom/bust cycles',
         'Exciting when economy is good (20% growth last 2 years)',
@@ -408,9 +408,9 @@ export const tradeOffScenarios = [
   },
   {
     id: 'scenario10',
-    title: 'Scenario 10: Asset-Light vs. Capital-Intensive',
+    title: 'Scenario 10',
     dealA: {
-      name: 'Deal A: Asset-Light Franchise Services',
+      name: 'Deal A',
       details: [
         'Minimal capex (<2% of revenue)',
         'High cash conversion (95%)',
@@ -419,7 +419,7 @@ export const tradeOffScenarios = [
       ],
     },
     dealB: {
-      name: 'Deal B: Manufacturing (Consumer Products Co-Man)',
+      name: 'Deal B',
       details: [
         'Requires ongoing capex (15% of revenue)',
         'Equipment upgrades needed',
@@ -431,9 +431,9 @@ export const tradeOffScenarios = [
   },
   {
     id: 'scenario11',
-    title: 'Scenario 11: Great Team vs. Better Business',
+    title: 'Scenario 11',
     dealA: {
-      name: 'Deal A: Exceptional Management Team',
+      name: 'Deal A',
       details: [
         'CEO from Fortune 500, has scaled businesses before',
         'Solid business, professionally run',
@@ -442,7 +442,7 @@ export const tradeOffScenarios = [
       ],
     },
     dealB: {
-      name: 'Deal B: Better Business, Mediocre Team',
+      name: 'Deal B',
       details: [
         'Long-tenured but not sophisticated management',
         'Better business fundamentals',
