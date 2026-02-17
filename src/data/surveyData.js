@@ -207,7 +207,7 @@ export const tradeOffScenarios = [
     dealA: {
       name: 'Deal A: Franchisee Platform',
       details: [
-        '15 locations',
+        '30 locations',
         'Strong unit economics',
         'Proven category',
         'Management in place',
@@ -217,10 +217,9 @@ export const tradeOffScenarios = [
     dealB: {
       name: 'Deal B: Med Spa Platform',
       details: [
-        '8 locations',
+        '7 locations',
         'Emerging category',
         'Needs operational upgrade',
-        'Higher growth potential',
         '7x EBITDA',
       ],
     },
@@ -235,7 +234,7 @@ export const tradeOffScenarios = [
         'Customer concentration',
         'Strong margins',
         'Operational complexity',
-        '8x EBITDA',
+        '9x EBITDA',
       ],
     },
     dealB: {
@@ -244,32 +243,28 @@ export const tradeOffScenarios = [
         'Fragmented market',
         'Bolt-on opportunities',
         'Recurring revenue',
-        'Labor-dependent model',
-        '11x EBITDA',
+        '12x EBITDA',
       ],
     },
   },
   {
     id: 'scenario3',
-    title: 'Scenario 3: Experience vs. Opportunity',
+    title: 'Scenario 3: Known Sector vs. New Opportunity',
     dealA: {
-      name: 'Deal A: Sector We Know (Franchising)',
+      name: 'Deal A: Franchisor Asset',
       details: [
-        'Deep firm experience in the category',
         'Competitive process',
+        '13x EBITDA',
         'Strong asset',
-        'Premium pricing',
-        '12x EBITDA',
       ],
     },
     dealB: {
       name: 'Deal B: New Sector (Pet Services)',
       details: [
-        'Proprietary deal / no competition',
+        'Proprietary deal',
+        '9x EBITDA',
         'Needs operational improvement',
-        'Good market dynamics',
-        'Learning curve for team',
-        '8x EBITDA',
+        'Have an executive but first time working together',
       ],
     },
   },
@@ -280,9 +275,8 @@ export const tradeOffScenarios = [
       name: 'Deal A: Ingredients / Flavors Business',
       details: [
         'High technical barriers',
-        'Differentiated offering',
-        'Sticky customer relationships',
-        'Complex operations',
+        'Differentiated',
+        'Sticky customers',
         '12x EBITDA',
       ],
     },
@@ -292,8 +286,169 @@ export const tradeOffScenarios = [
         'Replicable model',
         'Simple operations',
         'Capital-light',
-        'Lower barriers to entry',
+        '8x EBITDA',
+      ],
+    },
+  },
+  {
+    id: 'scenario5',
+    title: 'Scenario 5: Commodity vs. Differentiated',
+    dealA: {
+      name: 'Deal A: Food Ingredients Distributor',
+      details: [
+        'Commoditized products',
+        'Slim margins (8%)',
+        'GDP growth',
         '7x EBITDA',
+      ],
+    },
+    dealB: {
+      name: 'Deal B: Med Spa Platform',
+      details: [
+        'Differentiated services',
+        'Strong margins (25%)',
+        'Needs operational upgrade',
+        '9x EBITDA',
+      ],
+    },
+  },
+  {
+    id: 'scenario6',
+    title: 'Scenario 6: Platform Build vs. Strategic Add-On',
+    dealA: {
+      name: 'Deal A: Standalone Pet Grooming Business',
+      details: [
+        '12 locations, strong brand',
+        'Could be a platform for roll-up strategy',
+        'No current portfolio fit',
+        '$8M EBITDA',
+        '9x multiple',
+      ],
+    },
+    dealB: {
+      name: 'Deal B: Coffee Chain (Add-On to Beans and Brews)',
+      details: [
+        '5 locations, immediate synergies',
+        'Management can be consolidated',
+        '$3M EBITDA',
+        '10x multiple but 30% cost synergies year one',
+      ],
+    },
+  },
+  {
+    id: 'scenario7',
+    title: 'Scenario 7: B2B Quasi-Consumer vs. DTC Consumer',
+    dealA: {
+      name: 'Deal A: Commercial Furniture (B2B)',
+      details: [
+        'B2B sales to architects/designers',
+        'Specified products, 18-month sales cycles',
+        'Sticky relationships',
+        'Recession-sensitive',
+        '40% gross margins',
+        '8x EBITDA',
+      ],
+    },
+    dealB: {
+      name: 'Deal B: Branded Consumer Pet Products (DTC + Amazon)',
+      details: [
+        'Direct to consumer, marketing-driven',
+        'Fast product cycles, fad risk',
+        '55% gross margins',
+        'Capital needed for inventory/marketing',
+        '8x EBITDA',
+      ],
+    },
+  },
+  {
+    id: 'scenario8',
+    title: 'Scenario 8: Mature Cash Flow vs. Growth Capex',
+    dealA: {
+      name: 'Deal A: QSR Franchisee (Ohio)',
+      details: [
+        '15 locations, mature market',
+        'Limited white space, same-store sales flat',
+        'Growth through acquiring other franchisees',
+        'Strong cash flow',
+        '7x EBITDA',
+      ],
+    },
+    dealB: {
+      name: 'Deal B: QSR Franchisee (Florida)',
+      details: [
+        '8 locations, development agreement for 12 more over 4 years',
+        'Strong same-store growth (+8% annually)',
+        'Requires capex for new builds',
+        '11x EBITDA',
+      ],
+    },
+  },
+  {
+    id: 'scenario9',
+    title: 'Scenario 9: Stability vs. Upside',
+    dealA: {
+      name: 'Deal A: Home Services (Plumbing/HVAC)',
+      details: [
+        'Recession-resistant, need-based services',
+        'Recurring maintenance revenue',
+        'Boring but stable',
+        'Lower growth (5% annually)',
+        '10x EBITDA',
+      ],
+    },
+    dealB: {
+      name: 'Deal B: Remodeling / Renovation Services',
+      details: [
+        'Discretionary spending, boom/bust cycles',
+        'Exciting when economy is good (20% growth last 2 years)',
+        'Could be painful in downturn',
+        '7x EBITDA',
+      ],
+    },
+  },
+  {
+    id: 'scenario10',
+    title: 'Scenario 10: Asset-Light vs. Capital-Intensive',
+    dealA: {
+      name: 'Deal A: Asset-Light Franchise Services',
+      details: [
+        'Minimal capex (<2% of revenue)',
+        'High cash conversion (95%)',
+        'Can scale without much capital',
+        '12x EBITDA',
+      ],
+    },
+    dealB: {
+      name: 'Deal B: Manufacturing (Consumer Products Co-Man)',
+      details: [
+        'Requires ongoing capex (15% of revenue)',
+        'Equipment upgrades needed',
+        'High barriers to entry once built',
+        'Better margins',
+        '8x EBITDA',
+      ],
+    },
+  },
+  {
+    id: 'scenario11',
+    title: 'Scenario 11: Great Team vs. Better Business',
+    dealA: {
+      name: 'Deal A: Exceptional Management Team',
+      details: [
+        'CEO from Fortune 500, has scaled businesses before',
+        'Solid business, professionally run',
+        'Will stay post-close, wants equity rollover',
+        '12x EBITDA',
+      ],
+    },
+    dealB: {
+      name: 'Deal B: Better Business, Mediocre Team',
+      details: [
+        'Long-tenured but not sophisticated management',
+        'Better business fundamentals',
+        'Opportunity to upgrade management but no network yet',
+        'Seller wants full exit',
+        '8x EBITDA',
       ],
     },
   },
